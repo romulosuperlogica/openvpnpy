@@ -1,2 +1,6 @@
-Dentro da pasta do SO
-    pyinstaller --onefile --windowed vpn_ui.py 
+#Criar executavel
+    pyinstaller --onefile --windowed openvpnpy.py 
+
+#Instalação
+    chmod +x install.sh
+    sudo ./install.sh
