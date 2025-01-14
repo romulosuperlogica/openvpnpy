@@ -1,4 +1,4 @@
 build/
 dist/
-ovpn_configs_old/
+ovpn_configs/
 venv/
