@@ -8,7 +8,7 @@ from datetime import datetime
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-CONFIG_FILE = os.path.join(SCRIPT_DIR, 'config.json')
+CONFIG_FILE = os.path.join(SCRIPT_DIR, 'openvpnpy_configs', 'config.json')
 OVPN_DIR = os.path.join(SCRIPT_DIR, 'openvpnpy_configs', 'ovpn_file')
 
 # Certifique-se de que o diretório de configuração existe
