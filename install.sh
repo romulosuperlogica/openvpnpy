@@ -1,7 +1,6 @@
 #!/bin/bash
 
 SOURCE_PYTHON_SCRIPT="./openvpnpy.py"
-DEST_PYTHON_SCRIPT="/usr/local/bin/openvpnpy.py"
 DESKTOP_FILE="/usr/share/applications/openvpnpy.desktop"
 VENV_DIR="./venv"
 
@@ -23,28 +22,17 @@ echo "Instalando dependências do Python..."
 "$VENV_DIR/bin/pip" install --upgrade pip
 "$VENV_DIR/bin/pip" install -r requirements.txt
 
-# Verificar se o arquivo Python existe na pasta de origem
-if [ ! -f "$SOURCE_PYTHON_SCRIPT" ]; then
-    echo "O arquivo Python não foi encontrado em $SOURCE_PYTHON_SCRIPT"
-    echo "Por favor, coloque o arquivo Python no diretório correto."
-    exit 1
-fi
-
-# Copiar o arquivo Python para o diretório /usr/local/bin/
-echo "Copiando o arquivo Python para $DEST_PYTHON_SCRIPT..."
-sudo cp "$SOURCE_PYTHON_SCRIPT" "$DEST_PYTHON_SCRIPT"
-
 # Tornar o arquivo Python executável
 echo "Tornando o script Python executável..."
-sudo chmod +x "$DEST_PYTHON_SCRIPT"
+sudo chmod +x "$SOURCE_PYTHON_SCRIPT"
 
 # Criar o arquivo .desktop
 echo "Criando atalho .desktop em $DESKTOP_FILE..."
 sudo bash -c "cat > $DESKTOP_FILE <<EOF
 [Desktop Entry]
-Name=OpenVPNpy
-Exec=python3 $DEST_PYTHON_SCRIPT > /dev/null 2>&1
-Icon=utilities-terminal
+Name=OpenVPNPY
+Exec=python3 $PWD/openvpnpy.py > /dev/null 2>&1
+Icon=$PWD/openvpn.ico
 Terminal=false
 Type=Application
 Categories=Utility;

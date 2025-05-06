@@ -6,10 +6,10 @@ import shutil
 import subprocess
 from datetime import datetime
 
-# Caminho para o arquivo JSON que armazenará o caminho do .ovpn
-CONFIG_FILE = 'openvpnpy_configs/config.json'
-# Diretório onde os arquivos .ovpn importados serão armazenados
-OVPN_DIR = 'openvpnpy_configs/ovpn_file'
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+CONFIG_FILE = os.path.join(SCRIPT_DIR, 'config.json')
+OVPN_DIR = os.path.join(SCRIPT_DIR, 'openvpnpy_configs', 'ovpn_file')
 
 # Certifique-se de que o diretório de configuração existe
 if not os.path.exists(OVPN_DIR):
